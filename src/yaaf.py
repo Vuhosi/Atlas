@@ -1,23 +1,26 @@
 import openai
 import time
-import openai
-import time
 from dotenv import load_dotenv
 import os
 import json
 import inspect
 from typing import get_type_hints
+from rich.console import Console
+from rich.panel import Panel
+from rich.text import Text
+from rich import print as rprint
+
 
 class AIAssistantFramework:
-  def __init__(self, api_key, model):
+    def __init__(self, api_key, model):
       openai.api_key = api_key
       self.assistant = None
       self.model = model
       self.tools = {}
 
-  def create_assistant(self, name, instructions, tools):
-      tool_definitions = []
-      for tool_name, tool_func in tools.items():
+    def create_assistant(self, name, instructions, tools):
+        tool_definitions = []
+        for tool_name, tool_func in tools.items():
           tool_definition = {
               "type": "function",
               "function": {
@@ -41,7 +44,6 @@ class AIAssistantFramework:
                   "type": self._get_json_type(param_type),
                   "description": f"Parameter: {param_name}"
               }
-
               # Check if the parameter is required
               if param.default == inspect.Parameter.empty:
                   tool_definition["function"]["parameters"]["required"].append(param_name)
@@ -49,15 +51,15 @@ class AIAssistantFramework:
           tool_definitions.append(tool_definition)
           self.tools[tool_name] = tool_func
 
-      self.assistant = openai.beta.assistants.create(
+        self.assistant = openai.beta.assistants.create(
           name=name,
           instructions=instructions,
           model=self.model,
           tools=tool_definitions
-      )
-      return self.assistant
+        )
+        return self.assistant
 
-  def _get_json_type(self, python_type):
+    def _get_json_type(self, python_type):
       type_mapping = {
           'str': 'string',
           'int': 'integer',
@@ -68,17 +70,17 @@ class AIAssistantFramework:
       }
       return type_mapping.get(python_type, 'string')
 
-  def create_thread(self):
+    def create_thread(self):
       return openai.beta.threads.create()
 
-  def add_message(self, thread_id, content):
+    def add_message(self, thread_id, content):
       openai.beta.threads.messages.create(
           thread_id=thread_id,
           role="user",
           content=content
       )
 
-  def run_assistant(self, thread_id):
+    def run_assistant(self, thread_id):
       run = openai.beta.threads.runs.create(
           thread_id=thread_id,
           assistant_id=self.assistant.id
@@ -94,7 +96,7 @@ class AIAssistantFramework:
               self.handle_tool_calls(thread_id, run.id, run_status.required_action.submit_tool_outputs.tool_calls)
           time.sleep(1)
 
-  def handle_tool_calls(self, thread_id, run_id, tool_calls):
+    def handle_tool_calls(self, thread_id, run_id, tool_calls):
       tool_outputs = []
       for tool_call in tool_calls:
           if tool_call.function.name in self.tools:
@@ -120,11 +122,11 @@ class AIAssistantFramework:
           tool_outputs=tool_outputs
       )
 
-  def get_response(self, thread_id):
+    def get_response(self, thread_id):
       messages = openai.beta.threads.messages.list(thread_id=thread_id)
       return messages.data[0].content[0].text.value
 
-  def generate_output(self, input_text, prompt):
+    def generate_output(self, input_text, prompt):
       thread = self.create_thread()
       self.add_message(thread.id, f"Input: {input_text}")
       self.add_message(thread.id, prompt)
@@ -132,15 +134,34 @@ class AIAssistantFramework:
       return self.get_response(thread.id)
 
 def create_agent(api_key, name, instructions, tools, model="gpt-4o-mini"):
-  print("--Agent Started--")
-  framework = AIAssistantFramework(api_key, model)
-  framework.create_assistant(name, instructions, tools)
-  return framework
+    framework = AIAssistantFramework(api_key, model)
+    framework.create_assistant(name, instructions, tools)
+    console = Console()
+    message = (
+          f":brain: [bold magenta]{name}[/bold magenta] "
+          f"[green]initialized[/green]\n"
+          f"[yellow]Model:[/yellow] [blue]{model}[/blue]\n"
+          f"[yellow]Tools:[/yellow] [blue]{', '.join(tools)}[/blue]"
+      )
+    panel = Panel(
+      message,
+      title="[bold red]Agent Profiling Successful[/bold red]",
+      border_style="green",
+      expand=False
+    )
+    console.print(panel)
+    return framework
 
 def create_task(agent, input_text, prompt, output_dir=None, output_file=None):
-    print("--Task Started--")
     output = agent.generate_output(input_text, prompt)
-    print(output)
+    console = Console()
+    output_panel = Panel(
+      output,
+      title="[bold green]Initiating Task[/bold green]",
+      border_style="blue",
+      expand=False
+    )
+    console.print(output_panel)
     if output_dir and output_file:
         # Create the directory if it doesn't exist
         os.makedirs(output_dir, exist_ok=True)
@@ -151,7 +172,7 @@ def create_task(agent, input_text, prompt, output_dir=None, output_file=None):
         # Write the output to the file
         with open(output_file_path, 'w') as file:
             file.write(output)
-            print(f"Output has been written to {output_file_path}")
+            rprint(f"[bold green]✅ Output saved:[/bold green] [blue underline]{output_file_path}[/blue underline]")
     return output
 
 
