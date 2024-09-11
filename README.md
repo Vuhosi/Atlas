@@ -1,8 +1,7 @@
 # YAAF
 Yet Another (AI) Agentic Framework
 
-This is a simple AI Agent framework built during my work as an AI Engineer providing agents as a service.
-
+Our Inhouse Framework to create custom AI Agents with ease and zero coupling
 ![demo](./assets/demo.jpeg)
 
 
