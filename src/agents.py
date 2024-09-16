@@ -14,5 +14,6 @@ class Agents():
 
 
     def run_agent(task):
-        
+        self.messages.append({"role": "user", "content": task})
+        OllamaModel(self.messages)
 
