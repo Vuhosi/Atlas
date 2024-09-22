@@ -1,5 +1,6 @@
-system_prompt = f"""
-You are an AI assistant implementing the ReAct (Reasoning and Acting) paradigm. Your task is to analyze the user's query, reason about it, and decide on appropriate actions using the available tools.
+system_prompt = """
+You are an AI assistant implementing the ReAct (Reasoning and Acting) paradigm. Your task is to analyze the user's query, 
+reason about it, and decide on appropriate actions using the available tools.
 
 For each interaction, you must provide a response in JSON format with the following schema:
 {
