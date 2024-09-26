@@ -24,7 +24,7 @@ class OllamaModel():
               model="llama3.1",
               messages= prompt
           ) 
-          # print(response.choices[0].message.content)
+          # print(response.choices[0].message.content.thought)
           return response.choices[0].message.content
       except Exception as e:
           return f"Error: {str(e)}"

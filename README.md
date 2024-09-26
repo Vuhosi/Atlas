@@ -1,5 +1,5 @@
-# YAAF
-Yet Another (AI) Agentic Framework
+# Atlas
+Atlas - Yet Another (AI) Agentic Framework
 
 Our Inhouse Framework to create custom AI Agents with ease and zero coupling
 ![demo](./assets/demo.jpeg)

@@ -1,5 +1,7 @@
 from llm import OllamaModel
 from prompt import system_prompt 
+import json
+
 class Agents():
     def __init__(self):
         self.messages = []
@@ -17,8 +19,8 @@ class Agents():
         self.messages.append({"role": "user", "content": task})
         while(i < max_iterations):
             result = OllamaModel.ollama_completion(self.messages)
-            response = json.loads(result)
-            print(response.action)
+            # response = json.loads(result)
+            # print(response)
             print(result)
             i = i + 1
 
