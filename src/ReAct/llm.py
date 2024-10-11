@@ -21,7 +21,7 @@ class OllamaModel():
       
       try:
           response = client.chat.completions.create(
-              model="llama3.1",
+        model="llama3.2:3b",
               messages= prompt
           ) 
           # print(response.choices[0].message.content.thought)
