@@ -54,7 +54,7 @@ These bots simulate conversations with well-known personalities,  by embodying t
 Heres an example of how to build a simple conversational assistant using atlas
 
 ```python
-from src.persona_bots.conversational_assistants import create_persona, create_chat
+from atlas.persona_bots.conversational_assistants import create_persona, create_chat
 
 # Define persona
 name = "Elon Musk"
