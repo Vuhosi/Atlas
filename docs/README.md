@@ -7,8 +7,8 @@ Atlas is an in-house framework designed to create custom AI agents with ease and
 ## Key Features
 * Assistants: Utilizes OpenAI assistants for fast function calling.
 * Persona Bot Assistants: Engages in a loop with the user, simulating a conversational persona.
-* ReAct Based Agents: Executes a reasoning and action loop to accomplish tasks.
-* PAL Agents: Program-Aided Language models tailored for problem-solving.
+* ReAct Based Agents: Executes a reasoning and action loop to accomplish tasks. (In progress)
+* PAL Agents: Program-Aided Language models tailored for problem-solving. (In progress)
 
 Code examples:
 
