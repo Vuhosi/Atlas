@@ -17,7 +17,8 @@ The primary goal of Atlas is to maintain a sequential flow of multiple agents in
 - Four different types of AI Agents to suit various use cases
 - Customizable prompting system
 
-
+## Installation
+`pip install vuhosi-atlas`
 
 ## Agent Types
 
