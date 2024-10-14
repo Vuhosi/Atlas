@@ -9,10 +9,10 @@ Our Inhouse Framework to create custom AI Agents with ease and zero coupling
 ### Conversational Persona Bots:
 ![demo](./assets/persona.png)
 
-> So the thing is, Crewai is underwhelming when I had to deploy crews to prod. They were "unreliable" and dissapointing. Same goes for other abstractions created by other organisations. So I decided to create some abstractions on top of openai assistants and function calling, trying to create a simplifies, less bloated framework which we could use internally for our usecase.
+> So the thing is, Crewai is underwhelming when I had to deploy crews to prod. They were "unreliable" and dissapointing. Same goes for other abstractions created by other organisations. So I decided to create my own low coupling abstraction (on top of openai assistants and function calling), trying to create a simplified, less bloated framework which we will use internally for our usecase.
 
 
-The goal is simple, the flow pipeline is sequential, having an mutliple agents.
+The goal is simple: Keep the flow of mutliple agents pipeline sequential.
 
 
 ## Outline:
