@@ -1,0 +1,20 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "vuhosi-atlas"
+version = "0.1.0"
+description = "Atlas - Yet Another (AI) Agentic Framework"
+authors = [{ name = "theyashwanthsai", email = "taddishetty34@gmail.com" }]
+readme = "README.md"
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "License :: OSI Approved :: MIT License",
+  "Operating System :: OS Independent",
+]
+
+
+[project.urls]
+Homepage = "https://github.com/Vuhosi/Atlas"
+Repository = "https://github.com/Vuhosi/Atlas"
