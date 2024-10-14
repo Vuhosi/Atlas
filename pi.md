@@ -1,3 +1,4 @@
+
 Atlas is an in-house framework designed to create custom AI Agents with ease and zero coupling. Built by Vuhosi, Atlas aims to provide a simplified, less bloated alternative to existing AI agent frameworks.
 
 
@@ -17,8 +18,6 @@ The primary goal of Atlas is to maintain a sequential flow of multiple agents in
 - Four different types of AI Agents to suit various use cases
 - Customizable prompting system
 
-## Installation
-`pip install vuhosi-atlas`
 
 ## Agent Types
 
@@ -26,49 +25,11 @@ Atlas supports four different types of AI Agents:
 
 1. **Assistants**: Utilizes OpenAI assistants under the hood, combining function calling for fast and efficient operations.
 
-   ![Assistants Demo](./assets/demo.png)
-
 2. **Conversational Persona Bots**: Assistants in a loop with the user, designed for interactive conversations.
-
-   ![Persona Bots Demo](./assets/persona.png)
 
 3. **ReAct-based Agents**: Implements a Reasoning and Action loop to accomplish tasks effectively.
 
 4. **PAL Agents**: Program-Aided Language models built for complex problem-solving scenarios.
-
-
-## Quick Start
-```python
-from vuhosi_atlas.assistants.assistants import create_agent, create_task
-
-api_key = "OPENAIAPIKEY"
-
-agent = create_agent(api_key, name, instructions, tools)
-create_task(agent, input, prompt)
-```
-
-
-
-
-## Roadmap
-
-- [ ] Implement ReAct based agents
-
-- [ ] Implement PAL based agents
-
-- [ ] Implement a new prompting system:
-  - Objective
-  - Context
-  - Instruction
-  - Output
-  - Examples
-
-- [ ] Develop collaboration workflow:
-  - Current focus is on sequential workflows
-  - Future plans to implement collaborative agent interactions
-
-- [ ] Integrate feedback mechanism:
-  - Initial implementation of a naive feedback system
 
 ## Why Atlas?
 

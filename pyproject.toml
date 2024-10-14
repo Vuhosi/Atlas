@@ -4,10 +4,10 @@ build-backend = "hatchling.build"
 
 [project]
 name = "vuhosi-atlas"
-version = "0.1.0"
+version = "0.1.1"
 description = "Atlas - Yet Another (AI) Agentic Framework"
 authors = [{ name = "theyashwanthsai", email = "taddishetty34@gmail.com" }]
-readme = "README.md"
+readme = "pi.md"
 classifiers = [
   "Programming Language :: Python :: 3",
   "License :: OSI Approved :: MIT License",
@@ -18,3 +18,6 @@ classifiers = [
 [project.urls]
 Homepage = "https://github.com/Vuhosi/Atlas"
 Repository = "https://github.com/Vuhosi/Atlas"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src"]
