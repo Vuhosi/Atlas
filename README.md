@@ -1,16 +1,6 @@
 Atlas is an in-house framework designed to create custom AI Agents with ease and zero coupling. Built by Vuhosi, Atlas aims to provide a simplified, less bloated alternative to existing AI agent frameworks.
 
-## Table of Contents
 
-- [Overview](#overview)
-- [Features](#features)
-- [Quick Start](#quick-start)
-- [Agent Types](#agent-types)
-- [Installation](#installation)
-- [Usage](#usage)
-- [Configuration](#configuration)
-- [Contributing](#contributing)
-- [License](#license)
 
 ## Overview
 
@@ -27,9 +17,7 @@ The primary goal of Atlas is to maintain a sequential flow of multiple agents in
 - Four different types of AI Agents to suit various use cases
 - Customizable prompting system
 
-## Quick Start
 
-[Placeholder for quick start guide]
 
 ## Agent Types
 
