@@ -1,6 +1,6 @@
 import os
 from dotenv import load_dotenv
-from src.assistants.assistants import create_agent, create_task
+from vuhosi_atlas.assistants.assistants import create_agent, create_task
 
 load_dotenv()
 api_key = os.getenv("OPENAI_API_KEY")

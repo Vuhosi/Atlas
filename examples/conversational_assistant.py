@@ -1,4 +1,4 @@
-from src.persona_bots.conversational_assistants import create_persona, create_chat
+from vuhosi_atlas.persona_bots.conversational_assistants import create_persona, create_chat
 import os
 from dotenv import load_dotenv
 
