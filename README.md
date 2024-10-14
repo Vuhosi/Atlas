@@ -38,6 +38,8 @@ Atlas supports four different types of AI Agents:
 
 
 ## Quick Start
+Build an agent in just 4 lines of code
+
 ```python
 from vuhosi_atlas.assistants.assistants import create_agent, create_task
 
